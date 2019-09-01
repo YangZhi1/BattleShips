@@ -67,17 +67,6 @@ public class Helper {
         return battleShipMap;
     }
 
-    public static boolean stillAlive(String[][] battleShipMap){
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
-                if(battleShipMap[i][j] == "1"){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     // This function returns true if the location is empty, false if taken
     public static boolean takenOrNot(String[][] battleShipMap, int[] location) {
         if (battleShipMap[location[0]][location[1]] != null){

@@ -1,6 +1,3 @@
-import java.util.Random;
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         // Making our new map which is empty :)
@@ -25,14 +22,14 @@ public class Main {
         System.out.println("The computer is done. The battle will now commence.");
 
         // while both players still have 1 surviving ship, continue the game
-        while(Helper.stillAlive(playerBattleShipMap) && Computer.stillAlive(computerBattleShipMap)){
+        while(stillAlive(playerBattleShipMap) && stillAlive(computerBattleShipMap)){
             Helper.attack(computerBattleShipMap);
             Computer.attack(playerBattleShipMap);
             printMap(playerBattleShipMap, computerBattleShipMap);
         }
 
         System.out.println("Game over");
-        if(Helper.stillAlive(playerBattleShipMap)){
+        if(stillAlive(playerBattleShipMap)){
             System.out.println("Congratulations, you won!");
         }
         else{
@@ -70,5 +67,16 @@ public class Main {
             }
             System.out.println("| " + c);
         }
+    }
+
+    public static boolean stillAlive(String[][] battleShipMap){
+        for(int i = 0; i < 10; i++){
+            for(int j = 0; j < 10; j++){
+                if(battleShipMap[i][j] == "1"){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
